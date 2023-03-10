@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>essa imagem abre em varios tamanhos e vai mudando</h1>
+    <picture>
+        <source media="(max-width: 750px )" srcset="imagens/image-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/image-m.png" type="image/png">
+        <img src="imagens/image-g.png" alt="grande">
+    </picture>
+
+    <audio preload="metadata" autoplay controls loop>
+        <source src="midia/TrueArtRealAffectionPart4 - Noir Et Blanc Vie.mp3" type="audio/mpeg">
+    </audio>
+    <audio preload="metadata" autoplay controls loop>
+        <source src="midia/Illusions - Anno Domini Beats.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
