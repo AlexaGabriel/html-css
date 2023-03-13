@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jogo de perguntas e respostas</h1>
+<p id="pergunta"></p>
+<label for="resposta">Sua resposta:</label>
+<input type="text" id="resposta!">
+<button type="button">Click Me!</button>
+
+<script>
+    // Definir as perguntas e respostas
+const perguntas = [
+  {
+    pergunta: "Qual é a capital do Brasil?",
+    resposta: "Brasília"
+  },
+  {
+    pergunta: "Qual é o maior animal terrestre?",
+    resposta: "Elefante"
+  },
+  {
+    pergunta: "Qual é a cor do cavalo branco de Napoleão?",
+    resposta: "Branco"
+  },
+  {
+    pergunta: "Qual é o planeta mais próximo do Sol?",
+    resposta: "Mercúrio"
+  },
+  {
+    pergunta: "Quem pintou a Mona Lisa?",
+    resposta: "Leonardo da Vinci"
+  },
+  {
+    pergunta: "Quantos elementos químicos existem na tabela periódica?",
+    resposta: "118"
+  },
+  {
+    pergunta: "Qual é a montanha mais alta do mundo?",
+    resposta: "Monte Everest"
+  },
+  {
+    pergunta: "Qual é a cidade mais populosa do mundo?",
+    resposta: "Tóquio"
+  },
+  {
+    pergunta: "Qual é a capital do Japão?",
+    resposta: "Tóquio"
+  },
+  {
+    pergunta: "Qual é o maior oceano do mundo?",
+    resposta: "Pacífico"
+  }
+];
+
+// Definir as variáveis de pontuação e índice da pergunta atual
+let pontuacao = 0;
+let indicePerguntaAtual = 0;
+
+// Função para exibir a pergunta atual
+function exibirPergunta() {
+  const perguntaAtual = perguntas[indicePerguntaAtual];
+  const perguntaHTML = document.getElementById("pergunta");
+  perguntaHTML.textContent = perguntaAtual.pergunta;
+}
+
+// Função para verificar se a resposta está correta e atualizar a pontuação
+function verificarResposta() {
+  const proxima =  document.getElementsByTagName("button");
+  const respostaInput = document.getElementById("resposta");
+  const resposta = respostaInput.value.trim().toLowerCase();
+  const perguntaAtual = perguntas[indicePerguntaAtual];
+
+  if (resposta === perguntaAtual.resposta.toLowerCase()) {
+    pontuacao++;
+    alert("Parabéns, você acertou!");
+  } else {
+    alert(`Ops, a resposta correta era ${perguntaAtual.resposta}.`);
+  }
+
+  // Atualizar a pontuação e exibir a próxima pergunta
+  document.getElementById("pontuacao").textContent = pontuacao;
+  respostaInput.value = "";
+  indicePerguntaAtual++;
+
+  // Verificar se chegamos ao final das perguntas e exibir a pontuação final
+  if (indicePerguntaAtual === perguntas.length) {
+    alert(`Fim do jogo! Sua pontuação final é ${pontuacao}.`);
+  } else {
+    exibirPergunta();
+  }
+}
+
+// Iniciar o jogo exibindo a primeira pergunta
+exibirPergunta();
+
+// Adicionar um evento de clique ao botão de verificar resposta
+const botaoVerificar = document.getElementById("verificar");
+botaoVerificar.addEventListener("click", verificarResposta);
+
+</script>
+</body>
+</html>
